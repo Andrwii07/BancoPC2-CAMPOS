@@ -5,10 +5,10 @@
 }
 
 <div class="container">
-    <h1 class="text-center mb-4">Formulario de Cliente</h1>
+    <h1 class="text-center mb-4">Formulario de Crear Cuenta</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form asp-controller="BankAccount" asp-action="Enviar" method="post">
+            <form asp-controller="Banco" asp-action="Enviar" method="post">
                 <div class="form-group">
                     <label asp-for="NombreT" class="control-label">Nombre del Titular</label>
                     <input asp-for="NombreT" class="form-control" />
@@ -29,7 +29,6 @@
                     <button type="submit" class="btn btn-primary">Crear Cuenta</button>
                 </div>
             </form>
-            <h1>@ViewData["Message"]</h1>
 
         </div>
     </div>
