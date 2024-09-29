@@ -1,4 +1,4 @@
-@model BancoPC2_CAMPOS.Models.Cuenta
+@model BancoPC2_CAMPOS.
 
 @{
     ViewData["Title"] = "Crear Cuenta";
@@ -10,26 +10,55 @@
         <div class="col-md-6">
             <form asp-controller="Banco" asp-action="Enviar" method="post">
                 <div class="form-group">
-                    <label asp-for="NombreT" class="control-label">Nombre del Titular</label>
-                    <input asp-for="NombreT" class="form-control" />
+                    <label asp-for="FormCuenta.NombreT" class="control-label">Nombre del Titular</label>
+                    <input asp-for="FormCuenta.NombreT" class="form-control" />
                 </div><br>
                 <div class="form-group">
-                    <label asp-for="TipoC" class="control-label">Tipo de Cuenta</label>
-                    <input asp-for="TipoC" class="form-control" />
+                    <label asp-for="FormCuenta.TipoC" class="control-label">Tipo de Cuenta</label>
+                    <input asp-for="FormCuenta.TipoC" class="form-control" />
                 </div><br>
                 <div class="form-group">
-                    <label asp-for="SaldoI" class="control-label">Saldo Inicial</label>
-                    <input asp-for="SaldoI" class="form-control">
+                    <label asp-for="FormCuenta.SaldoI" class="control-label">Saldo Inicial</label>
+                    <input asp-for="FormCuenta.SaldoI" class="form-control">
                 </div><br>
                 <div class="form-group">
-                    <label asp-for="Email" class="control-label">Correo Electronico</label>
-                    <input asp-for="Email" class="form-control" type="email" />
+                    <label asp-for="FormCuenta.Email" class="control-label">Correo</label>
+                    <input asp-for="FormCuenta.Email" class="form-control" type="email" />
                 </div><br>
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">Crear Cuenta</button>
                 </div>
             </form>
+            <h1>@ViewData["Message"]</h1>
 
+        </div>
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Titulas</th>
+                            <th>Tipo de CUenta</th>
+                            <th>Saldo Inicial</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ListCuenta != null)
+                        {
+                            @foreach (var item in Model.ListCuenta)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.NombreT)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TipoC)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SaldoI)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

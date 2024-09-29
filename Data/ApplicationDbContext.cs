@@ -9,5 +9,5 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
-    public DbSet<BancoPC2_CAMPOS.Models.Cuenta> Cuenta { get; set; }
+    public DbSet<BancoPC2_CAMPOS.Models.Cuenta> DataCuenta { get; set; }
 }
