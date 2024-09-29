@@ -1,0 +1,36 @@
+@model BancoPC2_CAMPOS.Models.Cuenta
+
+@{
+    ViewData["Title"] = "Crear Cuenta";
+}
+
+<div class="container">
+    <h1 class="text-center mb-4">Formulario de Cliente</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="BankAccount" asp-action="Enviar" method="post">
+                <div class="form-group">
+                    <label asp-for="NombreT" class="control-label">Nombre del Titular</label>
+                    <input asp-for="NombreT" class="form-control" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="TipoC" class="control-label">Tipo de Cuenta</label>
+                    <input asp-for="TipoC" class="form-control" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="SaldoI" class="control-label">Saldo Inicial</label>
+                    <input asp-for="SaldoI" class="form-control">
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Correo Electronico</label>
+                    <input asp-for="Email" class="form-control" type="email" />
+                </div><br>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+                </div>
+            </form>
+            <h1>@ViewData["Message"]</h1>
+
+        </div>
+    </div>
+</div>
